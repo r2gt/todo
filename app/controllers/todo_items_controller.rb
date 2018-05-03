@@ -3,6 +3,10 @@ class TodoItemsController < ApplicationController
     @todo_items = TodoItem.all
   end
 
+  def show
+    @todo_item = TodoItem.find(params[:id])
+  end
+
   def new
     @todo_item = TodoItem.new
   end  
@@ -15,7 +19,7 @@ class TodoItemsController < ApplicationController
     else
       render :new
     end
-  end
+  end 
 
   private
 
