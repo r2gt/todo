@@ -11,9 +11,3 @@ feature 'Showing todo' do
     expect(page).to have_text("Comprar Leite")
   end
 end
-
-#criar um novo todo
-
-#acessar uma url
-
-#Verifica se os valores são iguais
