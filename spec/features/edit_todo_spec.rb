@@ -21,8 +21,8 @@ feature "Editing Todo" do
     fill_in "Description", with: ""
     click_button "Update Todo item"
 
-    expect(page).to have_content("Description")
     expect(page).to have_content("can't be blank")
-    expect(current_path).to eql(edit_todo_item_path(@todo))
+    expect(page).to have_content("Description")
+    expect(current_path).to eql(todo_item_path(@todo))
   end
 end
