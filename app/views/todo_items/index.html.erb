@@ -3,7 +3,7 @@
     <% @todo_items.each do |todo_item| %>
         <li>
             <%= todo_item.description %>
-            <%= link_to 'Delete', todo_item_path(todo_item), method: :delete, id: dom_id(todo_item, :delete) %>
+            <%= link_to 'Delete', todo_item, method: :delete, id: dom_id(todo_item, :delete) %>
         </li>
     <% end %>
 </ul>
