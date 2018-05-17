@@ -4,25 +4,11 @@ class TodoItemsController < ApplicationController
   end
 
   def show
-    @todo_item = TodoItem.find(params[:id])
+    todo_item
   end
 
   def new
     @todo_item = TodoItem.new
-  end
-
-  def edit
-    @todo_item = TodoItem.find(params[:id])
-  end
-
-  def update
-    @todo_item = TodoItem.find(params[:id])
-
-    if @todo_item.update(todo_params)
-      redirect_to todo_item_path(@todo_item), notice: "Todo item was successfully updated"
-    else
-      render :edit
-    end
   end
 
   def create
@@ -35,7 +21,28 @@ class TodoItemsController < ApplicationController
     end
   end
 
+  def edit
+    todo_item
+  end
+
+  def update
+    if todo_item.update(todo_params)
+      redirect_to todo_item, notice: "Todo item was successfully updated"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    todo_item.destroy
+    redirect_to todo_items_path, notice: 'Todo item was successfully deleted !'
+  end
+
   private
+
+  def todo_item
+    @todo_item ||= TodoItem.find(params[:id])
+  end
 
   def todo_params
     params.require(:todo_item).permit(:description)
