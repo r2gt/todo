@@ -1,3 +1,4 @@
+<h2><%= t('.subtitle') %></h2>
 <%= form_for @todo_item do |f| %>
   <% if @todo_item.errors.any? %>
     <ul>
@@ -12,3 +13,5 @@
 
   <%= f.submit %>
 <% end %>
+<br>
+<%= link_to t('back'), :back %>

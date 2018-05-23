@@ -1,0 +1,23 @@
+pt-BR:
+  main_title: "Lista de afazeres"
+  todo_items:
+    show:
+      subtitle: "Detalhes da tarefa"
+    edit:
+      subtitle: "Editar tarefa"
+    new:
+      subtitle: "Nova tarefa"
+  activerecord:
+    models:
+      todo_item:
+        one: "Tarefa"
+        other: "Tarefas"
+    attributes:
+      todo_item:
+        description: "Descrição"
+  back: "Voltar"
+  helpers:
+    submit:
+      todo_item:
+        create: "Criar %{model}"
+        update: "Atualizar %{model}"
