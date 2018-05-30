@@ -15,7 +15,10 @@ class TodoItemsController < ApplicationController
     @todo_item = TodoItem.new(todo_params)
 
     if @todo_item.save
-      redirect_to todo_items_path, notice: I18n.t('todo_items.create.notice')
+      redirect_to(
+        todo_items_path(locale: params[:locale]),
+        notice: I18n.t('todo_items.create.notice')
+      )
     else
       render :new
     end
@@ -27,7 +30,10 @@ class TodoItemsController < ApplicationController
 
   def update
     if todo_item.update(todo_params)
-      redirect_to todo_item, notice: I18n.t('todo_items.update.notice')
+      redirect_to(
+        todo_item_path(todo_item, locale: params[:locale]),
+        notice: I18n.t('todo_items.update.notice')
+      )
     else
       render :edit
     end

@@ -11,6 +11,10 @@ pt-BR:
       subtitle: "Editar tarefa"
     new:
       subtitle: "Nova tarefa"
+    create:
+      notice: "Tarefa criada com sucesso"
+    update:
+      notice: "Tarefa atualizada com sucesso"
   activerecord:
     models:
       todo_item:
