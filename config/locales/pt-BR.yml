@@ -1,5 +1,7 @@
 pt-BR:
   main_title: "Lista de afazeres"
+  back: "Voltar"
+  edit: "Editar"
   todo_items:
     show:
       subtitle: "Detalhes da tarefa"
@@ -15,7 +17,6 @@ pt-BR:
     attributes:
       todo_item:
         description: "Descrição"
-  back: "Voltar"
   helpers:
     submit:
       todo_item:

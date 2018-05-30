@@ -1,4 +1,4 @@
 <h2><%= t('.subtitle') %></h2>
 <%= @todo_item.description %>
 <br>
-<%= link_to t('back'), :back %>
+<%= link_to t('edit'), edit_todo_item_path(@todo_item) %>
