@@ -15,7 +15,7 @@ class TodoItemsController < ApplicationController
     @todo_item = TodoItem.new(todo_params)
 
     if @todo_item.save
-      redirect_to todo_items_path, notice: 'Todo item was successfully created'
+      redirect_to todo_items_path, notice: I18n.t('todo_items.create.notice')
     else
       render :new
     end
@@ -27,7 +27,7 @@ class TodoItemsController < ApplicationController
 
   def update
     if todo_item.update(todo_params)
-      redirect_to todo_item, notice: "Todo item was successfully updated"
+      redirect_to todo_item, notice: I18n.t('todo_items.update.notice')
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class TodoItemsController < ApplicationController
 
   def destroy
     todo_item.destroy
-    redirect_to todo_items_path, notice: 'Todo item was successfully deleted !'
+    redirect_to todo_items_path, notice: I18n.t('todo_items.destroy.notice')
   end
 
   private

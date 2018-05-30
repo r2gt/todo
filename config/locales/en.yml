@@ -9,6 +9,12 @@ en:
       subtitle: "Edit to-do"
     new:
       subtitle: "New To-do"
+    create:
+      notice: "Todo item was successfully created"
+    update:
+      notice: "Todo item was successfully updated"
+    destroy:
+      notice: "Todo item was successfully deleted !"
   activerecord:
     models:
       todo_item:
