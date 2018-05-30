@@ -2,6 +2,8 @@ en:
   main_title: "To-do list"
   back: "Back"
   edit: "Edit"
+  show: "Show"
+  delete: "Delete"
   todo_items:
     show:
       subtitle: "Details to-do"

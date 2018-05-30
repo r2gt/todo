@@ -2,6 +2,8 @@ pt-BR:
   main_title: "Lista de afazeres"
   back: "Voltar"
   edit: "Editar"
+  show: "Visualizar"
+  delete: "Excluir"
   todo_items:
     show:
       subtitle: "Detalhes da tarefa"

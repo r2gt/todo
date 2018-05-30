@@ -3,9 +3,9 @@
     <% @todo_items.each do |todo_item| %>
         <li>
             <%= todo_item.description %>
-            <%= link_to 'Delete', todo_item, method: :delete, id: dom_id(todo_item, :delete) %> |
-            <%= link_to 'Edit', edit_todo_item_path(todo_item) %> |
-            <%= link_to 'Show', todo_item %>
+            <%= link_to t('delete'), todo_item_path(todo_item, locale: params[:locale]), method: :delete, id: dom_id(todo_item, :delete) %> |
+            <%= link_to t('edit'), edit_todo_item_path(todo_item, locale: params[:locale]) %> |
+            <%= link_to t('show'), todo_item_path(todo_item, locale: params[:locale]) %>
         </li>
     <% end %>
 </ul>
