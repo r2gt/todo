@@ -5,8 +5,8 @@ feature 'Creating todo' do
     visit new_todo_item_path
 
     fill_in('Description', with: 'John')
-    click_button('Save')
-        
+    click_button('Create Todo item')
+
     expect(page).to have_text 'Todo item was successfully created'
   end
 
@@ -14,8 +14,8 @@ feature 'Creating todo' do
     visit new_todo_item_path
 
     fill_in('Description', with: '')
-    click_button('Save')
-        
+    click_button('Create Todo item')
+
     expect(page).to have_text "Description can't be blank"
   end
 end
