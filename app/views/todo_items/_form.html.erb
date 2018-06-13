@@ -14,4 +14,4 @@
   <%= f.submit %>
 <% end %>
 <br>
-<%= link_to t('back'), todo_items_path %>
+<%= link_to t('back'), todo_items_path(locale: params[:locale]) %>
