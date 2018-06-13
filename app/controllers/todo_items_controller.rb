@@ -41,7 +41,11 @@ class TodoItemsController < ApplicationController
 
   def destroy
     todo_item.destroy
-    redirect_to todo_items_path, notice: I18n.t('todo_items.destroy.notice')
+
+    redirect_to(
+      todo_items_path(locale: params[:locale]),
+      notice: I18n.t('todo_items.destroy.notice')
+    )
   end
 
   private

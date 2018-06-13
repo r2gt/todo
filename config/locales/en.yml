@@ -16,7 +16,7 @@ en:
     update:
       notice: "Todo item was successfully updated"
     destroy:
-      notice: "Todo item was successfully deleted !"
+      notice: "Todo item was successfully deleted"
   activerecord:
     models:
       todo_item:
