@@ -2,13 +2,13 @@ require 'rails_helper'
 
 feature 'Creating todo' do
   scenario 'Create todo, using English locale' do
-    visit new_todo_item_path
+    visit new_todo_item_path(locale: 'en')
 
     fill_in('Description', with: 'John')
     click_button('Create Todo item')
 
     expect(page).to have_text 'Todo item was successfully created'
-    expect(page).to have_current_path todo_items_path
+    expect(page).to have_current_path todo_items_path(locale: 'en')
   end
 
   scenario 'Create todo, using Brazilian Portuguese locale' do
@@ -22,7 +22,7 @@ feature 'Creating todo' do
   end
 
   scenario 'Validates description' do
-    visit new_todo_item_path
+    visit new_todo_item_path(locale: 'en')
 
     fill_in('Description', with: '')
     click_button('Create Todo item')

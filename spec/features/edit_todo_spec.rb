@@ -6,13 +6,13 @@ feature "Editing Todo" do
   end
 
   scenario "updates Todo successfully, with English locale" do
-    visit edit_todo_item_path(@todo)
+    visit edit_todo_item_path(@todo, locale: 'en')
 
     fill_in "Description", with: "Ag é Silver"
     click_button "Update Todo item"
 
     expect(page).to have_content("Todo item was successfully updated")
-    expect(page).to have_current_path(todo_item_path(@todo))
+    expect(page).to have_current_path(todo_item_path(@todo, locale: 'en'))
   end
 
   scenario "updates Todo successfully, with Brazilian Portuguese locale" do
@@ -26,13 +26,13 @@ feature "Editing Todo" do
   end
 
   scenario "updates Todo with failure" do
-    visit edit_todo_item_path(@todo)
+    visit edit_todo_item_path(@todo, locale: 'en')
 
     fill_in "Description", with: ""
     click_button "Update Todo item"
 
     expect(page).to have_content("can't be blank")
     expect(page).to have_content("Description")
-    expect(current_path).to eql(todo_item_path(@todo))
+    expect(page).to have_current_path(todo_item_path(@todo, locale: 'en'))
   end
 end

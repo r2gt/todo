@@ -6,12 +6,12 @@ feature 'Deleting a todo item' do
   end
 
   scenario 'Deleting successfully and returning to index page with english locale' do
-    visit todo_items_url
+    visit todo_items_url(locale: 'en')
 
     expect {
       click_link "delete_todo_item_#{@todo_item.id}"
 
-      expect(page).to have_current_path todo_items_path
+      expect(page).to have_current_path todo_items_path(locale: 'en')
       expect(page).to have_text('Todo item was successfully deleted')
     }.to change(TodoItem, :count).from(1).to(0)
   end

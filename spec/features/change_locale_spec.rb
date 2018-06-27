@@ -6,7 +6,7 @@ feature 'Changing locale' do
 
     expect(page).to have_text("To-do list")
 
-    visit root_path(locale: "pt-BR")
+    visit locale_root_path(locale: "pt-BR")
 
     expect(page).to have_text("Lista de afazeres")
   end
