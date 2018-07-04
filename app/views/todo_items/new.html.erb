@@ -1,12 +1,1 @@
-<%= form_for @todo_item do |f| %>
-  <% if @todo_item.errors.any? %> 
-    <ul>
-      <% @todo_item.errors.full_messages.each do |msg| %>     
-        <li><%= msg %></li>   
-      <% end %> 
-    </ul> 
-  <% end %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.submit 'Save' %>
-<% end%>
+<%= render 'form', url: todo_items_path(locale: params[:locale]) %>

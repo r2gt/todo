@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Todo</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <title>Todo</title>
+        <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-    <%= flash[:notice] %>
-    <%= yield %>
-  </body>
+    <body>
+        <nav>
+            <% locale_links(exclude: params[:locale]).each do |link| %>
+                <span><%= link %></span>
+            <% end %>
+        </nav>
+
+        <h1><%= t('main_title') %></h1>
+        <%= flash[:notice] %>
+        <%= yield %>
+    </body>
 </html>
