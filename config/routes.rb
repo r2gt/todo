@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   scope ':locale' do
     root to: 'todo_items#index', as: :locale_root
     resources :todo_items
+    resources :users, only: [:new, :create]
   end
 end

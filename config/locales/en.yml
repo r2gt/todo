@@ -4,6 +4,11 @@ en:
   edit: "Edit"
   show: "Show"
   delete: "Delete"
+  user:
+    create:
+      notice: "User was successfully created"
+    new:
+      subtitle: "New user"
   todo_items:
     show:
       subtitle: "Details to-do"

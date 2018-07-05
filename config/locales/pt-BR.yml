@@ -4,6 +4,11 @@ pt-BR:
   edit: "Editar"
   show: "Visualizar"
   delete: "Excluir"
+  user:
+    create:
+      notice: "Usuario criado com sucesso"
+    new: 
+      subtitle: "Novo usuario"
   todo_items:
     show:
       subtitle: "Detalhes da tarefa"
