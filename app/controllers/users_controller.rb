@@ -7,10 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to(
-        todo_items_path(locale: params[:locale]),
-        notice: I18n.t('user.create.notice')
-      )
+      redirect_to todo_items_path, notice: I18n.t('user.create.notice')
     else
       render :new
     end
