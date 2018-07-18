@@ -30,6 +30,12 @@ en:
     attributes:
       todo_item:
         description: "Description"
+      user:
+        name: "Name"
+        username: "Username"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
   helpers:
     submit:
       todo_item:

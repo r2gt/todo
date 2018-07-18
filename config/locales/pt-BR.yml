@@ -7,7 +7,7 @@ pt-BR:
   user:
     create:
       notice: "Usuario criado com sucesso"
-    new: 
+    new:
       subtitle: "Novo usuario"
   todo_items:
     show:
@@ -30,6 +30,12 @@ pt-BR:
     attributes:
       todo_item:
         description: "Descrição"
+      user:
+        name: "Nome"
+        username: "Nome de usuário"
+        email: "E-mail"
+        password: "Senha"
+        password_confirmation: "Confirmar a senha"
   helpers:
     submit:
       todo_item:

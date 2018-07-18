@@ -22,11 +22,11 @@ feature 'Creating an user' do
     visit new_user_path(locale: 'pt-BR')
 
     expect {
-      fill_in('Name', with: 'Admin')
-      fill_in('Username', with: 'Admin')
+      fill_in('Nome', with: 'Admin')
+      fill_in('Nome de usuário', with: 'Admin')
       fill_in('E-mail', with: 'admin@admin.com')
-      fill_in('Password', with: '123456')
-      fill_in('Password confirmation', with: '123456')
+      fill_in('Senha', with: '123456')
+      fill_in('Confirmar a senha', with: '123456')
 
       click_button('Create User')
 
