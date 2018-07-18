@@ -10,7 +10,7 @@
 
     <body>
         <nav>
-            <% locale_links(exclude: params[:locale]).each do |link| %>
+            <% locale_links(exclude: I18n.locale).each do |link| %>
                 <span><%= link %></span>
             <% end %>
         </nav>
