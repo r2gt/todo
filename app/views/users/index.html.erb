@@ -1,11 +1,12 @@
 <h1>Users</h1>
 
 <div>
-    <% @users.each do |user| %>
-        <ul>
-            <li><%= User.human_attribute_name(:name) %>: <%= user.name %></li>
-            <li><%= User.human_attribute_name(:username) %>: <%= user.username %></li>
-            <li><%= User.human_attribute_name(:email) %>: <%= user.email %></li>
-        </ul>
-    <% end %>
+  <% @users.each do |user| %>
+    <ul>
+      <li><%= User.human_attribute_name(:name) %>: <%= user.name %></li>
+      <li><%= User.human_attribute_name(:username) %>: <%= user.username %></li>
+      <li><%= User.human_attribute_name(:email) %>: <%= user.email %></li>
+      <li><%= link_to t('edit'), edit_user_path(user) %></li>
+    </ul>
+  <% end %>
 </div>

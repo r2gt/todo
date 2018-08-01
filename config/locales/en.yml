@@ -4,11 +4,13 @@ en:
   edit: "Edit"
   show: "Show"
   delete: "Delete"
-  user:
+  users:
     create:
-      notice: "User was successfully created"
+      success: "User was successfully created"
     new:
       subtitle: "New user"
+    update:
+      success: "User was successfully updated"
   todo_items:
     show:
       subtitle: "Details to-do"

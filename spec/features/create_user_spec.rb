@@ -14,7 +14,7 @@ feature 'Creating an user' do
       click_button('Create User')
 
       expect(page).to have_text 'User was successfully created'
-      expect(page).to have_current_path todo_items_path(locale: 'en')
+      expect(page).to have_current_path users_path(locale: 'en')
     }.to change(User, :count).from(0).to(1)
   end
 
@@ -28,10 +28,10 @@ feature 'Creating an user' do
       fill_in('Senha', with: '123456')
       fill_in('Confirmar a senha', with: '123456')
 
-      click_button('Create User')
+      click_button('Criar Usuário')
 
       expect(page).to have_text 'Usuario criado com sucesso'
-      expect(page).to have_current_path todo_items_path(locale: 'pt-BR')
+      expect(page).to have_current_path users_path(locale: 'pt-BR')
     }.to change(User, :count).from(0).to(1)
   end
 end

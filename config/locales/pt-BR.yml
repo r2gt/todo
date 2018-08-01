@@ -4,11 +4,13 @@ pt-BR:
   edit: "Editar"
   show: "Visualizar"
   delete: "Excluir"
-  user:
+  users:
     create:
-      notice: "Usuario criado com sucesso"
+      success: "Usuario criado com sucesso"
     new:
       subtitle: "Novo usuario"
+    update:
+      success: "Usuário atualizado com sucesso"
   todo_items:
     show:
       subtitle: "Detalhes da tarefa"
@@ -27,6 +29,9 @@ pt-BR:
       todo_item:
         one: "Tarefa"
         other: "Tarefas"
+      user:
+        one: "Usuário"
+        other: "Usuários"
     attributes:
       todo_item:
         description: "Descrição"
@@ -39,5 +44,8 @@ pt-BR:
   helpers:
     submit:
       todo_item:
+        create: "Criar %{model}"
+        update: "Atualizar %{model}"
+      user:
         create: "Criar %{model}"
         update: "Atualizar %{model}"
