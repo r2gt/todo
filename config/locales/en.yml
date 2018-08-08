@@ -4,6 +4,7 @@ en:
   edit: "Edit"
   show: "Show"
   delete: "Delete"
+  new: "New User"
   users:
     create:
       success: "User was successfully created"

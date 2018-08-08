@@ -2,9 +2,11 @@ require 'rails_helper'
 
 feature 'Creating an user' do
   scenario 'Create user, using English locale' do
-    visit new_user_path(locale: 'en')
-
+    visit users_path(locale: 'en')
+    
     expect {
+      click_link('New User')
+
       fill_in('Name', with: 'Admin')
       fill_in('Username', with: 'Admin')
       fill_in('E-mail', with: 'admin@admin.com')
@@ -19,9 +21,11 @@ feature 'Creating an user' do
   end
 
   scenario 'Create user, using portuguese locale' do
-    visit new_user_path(locale: 'pt-BR')
+    visit users_path(locale: 'pt-BR')
 
     expect {
+      click_link('Novo Usuário')
+
       fill_in('Nome', with: 'Admin')
       fill_in('Nome de usuário', with: 'Admin')
       fill_in('E-mail', with: 'admin@admin.com')

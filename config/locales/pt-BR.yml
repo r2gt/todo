@@ -4,6 +4,7 @@ pt-BR:
   edit: "Editar"
   show: "Visualizar"
   delete: "Excluir"
+  new: "Novo Usuário"
   users:
     create:
       success: "Usuario criado com sucesso"
