@@ -3,9 +3,7 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show
-    @user = User.find(params[:id])
-  end
+  def show; user; end
 
   def new
     @user = User.new
@@ -21,22 +19,23 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
+  def edit; user; end
 
   def update
-    @user = User.find(params[:id])
-
-    if @user.update(user_params)
-      redirect_to @user, notice: t('.success')
+    if user.update(user_params)
+      redirect_to user, notice: t('.success')
     else
       render :edit
     end
   end
-
+  
+  def destroy
+    user.destroy
+    redirect_to users_path, notice: t('.success')
+  end
+  
   private
-
+  
   def user_params
     params.require(:user).permit(
       :name,
@@ -45,5 +44,9 @@ class UsersController < ApplicationController
       :password,
       :password_confirmation
     )
+  end
+    
+  def user
+    @user ||= User.find(params[:id])
   end
 end

@@ -11,6 +11,8 @@ pt-BR:
       subtitle: "Novo usuario"
     update:
       success: "Usuário atualizado com sucesso"
+    destroy:
+      success: "Usuário excluído com sucesso"
   todo_items:
     show:
       subtitle: "Detalhes da tarefa"

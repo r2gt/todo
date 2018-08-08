@@ -11,6 +11,8 @@ en:
       subtitle: "New user"
     update:
       success: "User was successfully updated"
+    destroy:
+      success: "User was successfully deleted"
   todo_items:
     show:
       subtitle: "Details to-do"
