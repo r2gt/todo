@@ -6,6 +6,8 @@ en:
   delete: "Delete"
   new: "New User"
   users:
+    index:
+      subtitle: "Users"
     create:
       success: "User was successfully created"
     new:

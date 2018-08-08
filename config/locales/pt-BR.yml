@@ -6,6 +6,8 @@ pt-BR:
   delete: "Excluir"
   new: "Novo Usuário"
   users:
+    index:
+      subtitle: "Usuários"
     create:
       success: "Usuario criado com sucesso"
     new:

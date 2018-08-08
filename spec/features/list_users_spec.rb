@@ -12,7 +12,8 @@ feature 'Listing all users' do
 
   scenario 'Displaying all users details, with English locale' do
     visit users_path
-
+    
+    expect(page).to have_text('Users')
     expect(page).to have_text('Name: Foo')
     expect(page).to have_text('Username: Bar')
     expect(page).to have_text('Email: foo@bar.com')
@@ -25,6 +26,7 @@ feature 'Listing all users' do
   scenario 'Displaying all users details, with Brazilian portuguese locale' do
     visit users_path(locale: 'pt-BR')
 
+    expect(page).to have_text('Usuários') 
     expect(page).to have_text('Nome: Foo')
     expect(page).to have_text('Nome de usuário: Bar')
     expect(page).to have_text('E-mail: foo@bar.com')
