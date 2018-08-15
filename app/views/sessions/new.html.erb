@@ -1,0 +1,8 @@
+<%= form_tag create_session_path do %>
+    <%= label_tag :session_username_or_email, 'Username or email' %>
+    <%= text_field_tag 'session[username_or_email]' %>
+    <%= label_tag :session_password, 'Password' %>
+    <%= password_field_tag 'session[password]' %>
+
+    <%= submit_tag 'Login' %>
+<% end %>

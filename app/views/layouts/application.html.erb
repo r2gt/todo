@@ -16,7 +16,8 @@
         </nav>
 
         <h1><%= t('main_title') %></h1>
-        <%= flash[:notice] %>
+        <%= flash.notice %>
+        <%= flash.alert %>
         <%= yield %>
     </body>
 </html>
