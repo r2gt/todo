@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
     if user and user.authenticate(params.dig(:session, :password))
       session[:current_user_id] = user.id
-      redirect_to root_path, notice: 'Logged in successfully.'
+      redirect_to locale_root_path, notice: 'Logged in successfully.'
     else
       flash.now[:alert] = 'Wrong email or password.'
       render :new

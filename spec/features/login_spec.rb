@@ -16,7 +16,7 @@ feature 'Logging in an user' do
     click_button 'Login'
 
     expect(page).to have_text('Logged in successfully.')
-    expect(page).to have_current_path(root_path)
+    expect(page).to have_current_path(locale_root_path(locale: 'en'))
   end
 
   scenario 'Trying to login with wrong password and returning to login page' do
@@ -52,6 +52,6 @@ feature 'Logging in an user' do
     click_button 'Login'
 
     expect(page).to have_text('Logged in successfully.')
-    expect(page).to have_current_path(root_path)
+    expect(page).to have_current_path(locale_root_path(locale: 'en'))
   end
 end
