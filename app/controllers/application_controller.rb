@@ -14,7 +14,11 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!current_user
   end
-  
+
+  def current_user_admin?
+    !!current_user&.admin?
+  end
+
   private
 
   def extract_locale
