@@ -10,9 +10,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new
 
-    if @user.save
+    if CreationService.new(@user).perform(user_params)
       redirect_to users_path, notice: t('.success')
     else
       render :new
@@ -28,24 +28,20 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     user.destroy
     redirect_to users_path, notice: t('.success')
   end
-  
+
   private
-  
+
   def user_params
     params.require(:user).permit(
-      :name,
-      :username,
-      :email,
-      :password,
-      :password_confirmation
+      :name, :username, :email, :password, :password_confirmation
     )
   end
-    
+
   def user
     @user ||= User.find(params[:id])
   end
