@@ -2,6 +2,7 @@ require "rails_helper"
 
 feature 'Deleting a todo item' do
   background do
+    sign_in
     @todo_item = TodoItem.create(description: 'Todo item a ser deletado')
   end
 

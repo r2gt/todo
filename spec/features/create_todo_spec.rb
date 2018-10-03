@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 feature 'Creating todo' do
+  background do
+    sign_in
+  end
+
   scenario 'Create todo, using English locale' do
     visit new_todo_item_path(locale: 'en')
 

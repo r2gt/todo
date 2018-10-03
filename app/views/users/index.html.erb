@@ -6,7 +6,7 @@
       <li><%= User.human_attribute_name(:name) %>: <%= user.name %></li>
       <li><%= User.human_attribute_name(:username) %>: <%= user.username %></li>
       <li><%= User.human_attribute_name(:email) %>: <%= user.email %></li>
-      <li><%= link_to t('edit'), edit_user_path(user) %></li>
+      <li><%= link_to t('edit'), edit_user_path(user), id: dom_id(user, :edit) %></li>
       <li><%= link_to "delete", user, method: :delete, id: dom_id(user, :delete) %></li>
     </ul>
   <% end %>

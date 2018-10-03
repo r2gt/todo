@@ -5,6 +5,9 @@ en:
   show: "Show"
   delete: "Delete"
   new: "New User"
+  sessions:
+    new:
+      not_authorized: "Not authorized"
   users:
     index:
       subtitle: "Users"

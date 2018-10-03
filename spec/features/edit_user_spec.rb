@@ -2,6 +2,8 @@ require 'rails_helper'
 
 feature 'Editing User' do
   background do
+    sign_in
+
     @user = User.create(
       name: 'Foo', username: 'Bar', email: 'foo@bar.com', password: '12345'
     )
@@ -10,7 +12,7 @@ feature 'Editing User' do
   scenario 'updates User successfully, with English locale' do
     visit users_path
 
-    click_link 'Edit'
+    click_link "edit_user_#{@user.id}"
 
     fill_in 'Name', with: 'FooBar'
     fill_in 'Username', with: 'foobar'
@@ -27,7 +29,7 @@ feature 'Editing User' do
   scenario 'updates User successfully, with portuguese locale' do
     visit users_path(locale: 'pt-BR')
 
-    click_link 'Editar'
+    click_link "edit_user_#{@user.id}"
 
     fill_in 'Nome', with: 'FooBar'
     fill_in 'Nome de usuário', with: 'foobar'
@@ -45,7 +47,7 @@ feature 'Editing User' do
     expect{
       visit users_path
 
-      click_link 'Edit'
+      click_link "edit_user_#{@user.id}"
 
       fill_in 'Name', with: ''
       fill_in 'Username', with: 'foobar'

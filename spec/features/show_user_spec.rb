@@ -2,6 +2,8 @@ require "rails_helper"
 
 feature 'Displaying an user' do
   background do
+    sign_in
+
     @user = User.create(
       name: 'Foo', username: 'Bar', email: 'foo@teste.com.br',
       password: '12345'

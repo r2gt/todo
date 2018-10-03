@@ -5,6 +5,9 @@ pt-BR:
   show: "Visualizar"
   delete: "Excluir"
   new: "Novo Usuário"
+  sessions:
+    new:
+      not_authorized: "Não autorizado"
   users:
     index:
       subtitle: "Usuários"

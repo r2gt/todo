@@ -2,6 +2,8 @@ require 'rails_helper'
 
 feature 'Showing todo' do
   background do
+    sign_in
+
     @todo = TodoItem.create(description: 'Comprar Leite')
   end
 
