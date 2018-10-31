@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :todo_items
 
   validates :name, :username, :email, presence: true
   validates :password, length: 5..20
