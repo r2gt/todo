@@ -1,6 +1,6 @@
 class TodoItemsController < ApplicationController
   def index
-    @todo_items = TodoItem.all
+    @todo_items = current_user.todo_items
   end
 
   def show
@@ -12,7 +12,7 @@ class TodoItemsController < ApplicationController
   end
 
   def create
-    @todo_item = TodoItem.new(todo_params)
+    @todo_item = current_user.todo_items.new(todo_params)
 
     if @todo_item.save
       redirect_to(
