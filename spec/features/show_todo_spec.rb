@@ -4,7 +4,7 @@ feature 'Showing todo' do
   background do
     sign_in
 
-    @todo = TodoItem.create(description: 'Comprar Leite')
+    @todo = @user.todo_items.create(description: 'Comprar Leite')
   end
 
   scenario 'Display details in English' do
