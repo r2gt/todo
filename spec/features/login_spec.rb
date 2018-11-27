@@ -54,4 +54,19 @@ feature 'Logging in an user' do
     expect(page).to have_text('Logged in successfully.')
     expect(page).to have_current_path(locale_root_path(locale: 'en'))
   end
+
+  scenario 'Logging out successfully and redirecting to login page' do
+    visit login_path
+
+    
+    fill_in 'Username or email', with: 'teste'
+    fill_in 'Password', with: 'teste'
+    
+    click_button 'Login'
+    click_link 'Logout'
+    
+    expect(page).to have_text('Logged out successfully.')
+    expect(page).to have_current_path(login_path(locale: 'en'))
+    expect(page).not_to have_text('Logout')
+  end
 end

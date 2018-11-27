@@ -12,7 +12,12 @@ class SessionsController < ApplicationController
       redirect_to locale_root_path, notice: 'Logged in successfully.'
     else
       flash.now[:alert] = 'Wrong email or password.'
-      render :new
+      render :new 
     end
+  end
+
+  def destroy
+    session[:current_user_id] = nil
+    redirect_to login_path, notice: 'Logged out successfully.'
   end
 end
