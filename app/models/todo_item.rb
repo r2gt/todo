@@ -8,12 +8,9 @@ class TodoItem < ApplicationRecord
     state :todo, :initial => true
     state :done
 
-    event :run do
-      transitions :from => :todo, :to => :done
-    end
-
-    event :undo do
-      transitions :from => :done, :to => :todo
+    event :switch do
+      transitions :from => :todo, :to => :done, :if => :todo?
+      transitions :from => :done, :to => :todo, :if => :done?
     end
   end
 end
