@@ -17,6 +17,16 @@ module Api
         end
       end
 
+      def update
+        todo_item = TodoItem.find(params[:id])
+
+        if todo_item.update(todo_params)
+          render json: todo_item, status: :ok
+        else
+          render json: todo_item.errors, status: :unprocessable_entity
+        end
+      end
+
       private
 
       def todo_params
