@@ -27,6 +27,14 @@ module Api
         end
       end
 
+      def destroy
+        todo_item = TodoItem.find(params[:id])
+
+        if todo_item.destroy
+          head :no_content
+        end
+      end
+
       private
 
       def todo_params
