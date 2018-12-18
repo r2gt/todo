@@ -8,6 +8,11 @@ en:
   sessions:
     new:
       not_authorized: "Not authorized"
+    create:
+      success: "Logged in successfully."
+      alert: "Wrong email or password."
+    destroy:
+      success: "Logged out successfully."
   users:
     index:
       subtitle: "Users"
@@ -27,11 +32,11 @@ en:
     new:
       subtitle: "New To-do"
     create:
-      notice: "Todo item was successfully created"
+      success: "Todo item was successfully created"
     update:
-      notice: "Todo item was successfully updated"
+      success: "Todo item was successfully updated"
     destroy:
-      notice: "Todo item was successfully deleted"
+      success: "Todo item was successfully deleted"
   activerecord:
     models:
       todo_item:

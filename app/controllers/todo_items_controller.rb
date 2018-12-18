@@ -16,7 +16,7 @@ class TodoItemsController < ApplicationController
 
     if @todo_item.save
       redirect_to(
-        todo_items_path, notice: I18n.t('todo_items.create.notice')
+        todo_items_path, notice: t('.success')
       )
     else
       render :new
@@ -29,7 +29,7 @@ class TodoItemsController < ApplicationController
 
   def update
     if todo_item.update(todo_params)
-      redirect_to todo_item, notice: I18n.t('todo_items.update.notice')
+      redirect_to todo_item, notice: t('.success')
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class TodoItemsController < ApplicationController
 
   def destroy
     todo_item.destroy
-    redirect_to todo_items_path, notice: I18n.t('todo_items.destroy.notice')
+    redirect_to todo_items_path, notice: t('.success')
   end
 
   private

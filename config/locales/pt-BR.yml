@@ -8,6 +8,11 @@ pt-BR:
   sessions:
     new:
       not_authorized: "Não autorizado"
+    create:
+      success: "Logado com sucesso."
+      alert: "E-mail ou senha incorretos"
+    destroy:
+      success: "Deslogado com sucesso."
   users:
     index:
       subtitle: "Usuários"
@@ -27,11 +32,11 @@ pt-BR:
     new:
       subtitle: "Nova tarefa"
     create:
-      notice: "Tarefa criada com sucesso"
+      success: "Tarefa criada com sucesso"
     update:
-      notice: "Tarefa atualizada com sucesso"
+      success: "Tarefa atualizada com sucesso"
     destroy:
-      notice: "Tarefa excluída com sucesso"
+      success: "Tarefa excluída com sucesso"
   activerecord:
     models:
       todo_item:

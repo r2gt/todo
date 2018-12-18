@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Todo</title>
-  <%= csrf_meta_tags %>
-  
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
+  <head>
+    <title>Todo</title>
+    <%= csrf_meta_tags %>
 
-<body>
-  <nav>
-    <%= link_to 'Logout', destroy_session_path if logged_in? %>
-    <% locale_links(exclude: I18n.locale).each do |link| %>
-    <span><%= link %></span>
-    <% end %>
-  </nav>
-  
-  <h1><%= t('main_title') %></h1>
-  <%= flash.notice %>
-  <%= flash.alert %>
-  <%= yield %>
-</body>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav>
+      <%= link_to 'Logout', destroy_session_path if logged_in? %>
+      <% locale_links(exclude: I18n.locale).each do |link| %>
+        <span><%= link %></span>
+      <% end %>
+    </nav>
+
+    <h1><%= t('main_title') %></h1>
+    <%= flash.notice %>
+    <%= flash.alert %>
+    <%= yield %>
+  </body>
 </html>

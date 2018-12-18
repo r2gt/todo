@@ -9,15 +9,15 @@ class SessionsController < ApplicationController
 
     if user and user.authenticate(params.dig(:session, :password))
       session[:current_user_id] = user.id
-      redirect_to locale_root_path, notice: 'Logged in successfully.'
+      redirect_to locale_root_path, notice: t('.success')
     else
-      flash.now[:alert] = 'Wrong email or password.'
-      render :new 
+      flash.now[:alert] = t('.alert')
+      render :new
     end
   end
 
   def destroy
     session[:current_user_id] = nil
-    redirect_to login_path, notice: 'Logged out successfully.'
+    redirect_to login_path, notice: t('.success')
   end
 end
