@@ -7,6 +7,12 @@ module Api
         render json: @todo_items
       end
 
+      def show
+        todo_item = TodoItem.find(params[:id])
+
+        render json: todo_item, status: :ok
+      end
+
       def create
         todo_item = TodoItem.new(todo_params.merge({user_id: User.last.id}))
 
