@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     root to: 'todo_items#index', as: :locale_root
 
     resources :todo_items do
-      resources :status, only: :create, controller: 'todo_items/status'
+      patch 'status' => 'todo_items/status#update', as: :status
     end
 
     resources :users

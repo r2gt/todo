@@ -2,7 +2,7 @@ module TodoItems
   class StatusController < ApplicationController
     before_action :todo_item
 
-    def create
+    def update
       todo_item.switch!
     end
 

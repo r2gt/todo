@@ -17,10 +17,10 @@ module TodoItems
       allow(subject).to receive(:logged_in?).and_return(true)
       allow(subject).to receive(:current_user).and_return(user)
 
-      post :create, params: { todo_item_id: todo_item.id }
+      patch :update, params: { todo_item_id: todo_item.id }
 
       todo_item.reload
-      
+
       expect(todo_item.done?).to eq true
     end
 
@@ -32,7 +32,7 @@ module TodoItems
 
       expect(todo_item.done?).to eq true
 
-      post :create, params: { todo_item_id: todo_item.id }
+      patch :update, params: { todo_item_id: todo_item.id }
 
       todo_item.reload
 
