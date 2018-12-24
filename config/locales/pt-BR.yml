@@ -4,6 +4,26 @@ pt-BR:
   edit: "Editar"
   show: "Visualizar"
   delete: "Excluir"
+  new: "Novo Usuário"
+  sessions:
+    new:
+      not_authorized: "Não autorizado"
+    create:
+      success: "Logado com sucesso."
+      alert: "E-mail ou senha incorretos"
+    destroy:
+      success: "Deslogado com sucesso."
+  users:
+    index:
+      subtitle: "Usuários"
+    create:
+      success: "Usuario criado com sucesso"
+    new:
+      subtitle: "Novo usuario"
+    update:
+      success: "Usuário atualizado com sucesso"
+    destroy:
+      success: "Usuário excluído com sucesso"
   todo_items:
     show:
       subtitle: "Detalhes da tarefa"
@@ -12,21 +32,33 @@ pt-BR:
     new:
       subtitle: "Nova tarefa"
     create:
-      notice: "Tarefa criada com sucesso"
+      success: "Tarefa criada com sucesso"
     update:
-      notice: "Tarefa atualizada com sucesso"
+      success: "Tarefa atualizada com sucesso"
     destroy:
-      notice: "Tarefa excluída com sucesso"
+      success: "Tarefa excluída com sucesso"
   activerecord:
     models:
       todo_item:
         one: "Tarefa"
         other: "Tarefas"
+      user:
+        one: "Usuário"
+        other: "Usuários"
     attributes:
       todo_item:
         description: "Descrição"
+      user:
+        name: "Nome"
+        username: "Nome de usuário"
+        email: "E-mail"
+        password: "Senha"
+        password_confirmation: "Confirmar a senha"
   helpers:
     submit:
       todo_item:
+        create: "Criar %{model}"
+        update: "Atualizar %{model}"
+      user:
         create: "Criar %{model}"
         update: "Atualizar %{model}"

@@ -2,7 +2,9 @@ require 'rails_helper'
 
 feature 'Showing todo' do
   background do
-    @todo = TodoItem.create(description: 'Comprar Leite')
+    sign_in
+
+    @todo = @user.todo_items.create(description: 'Comprar Leite')
   end
 
   scenario 'Display details in English' do

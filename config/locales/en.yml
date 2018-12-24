@@ -4,6 +4,26 @@ en:
   edit: "Edit"
   show: "Show"
   delete: "Delete"
+  new: "New User"
+  sessions:
+    new:
+      not_authorized: "Not authorized"
+    create:
+      success: "Logged in successfully."
+      alert: "Wrong email or password."
+    destroy:
+      success: "Logged out successfully."
+  users:
+    index:
+      subtitle: "Users"
+    create:
+      success: "User was successfully created"
+    new:
+      subtitle: "New user"
+    update:
+      success: "User was successfully updated"
+    destroy:
+      success: "User was successfully deleted"
   todo_items:
     show:
       subtitle: "Details to-do"
@@ -12,11 +32,11 @@ en:
     new:
       subtitle: "New To-do"
     create:
-      notice: "Todo item was successfully created"
+      success: "Todo item was successfully created"
     update:
-      notice: "Todo item was successfully updated"
+      success: "Todo item was successfully updated"
     destroy:
-      notice: "Todo item was successfully deleted"
+      success: "Todo item was successfully deleted"
   activerecord:
     models:
       todo_item:
@@ -25,6 +45,12 @@ en:
     attributes:
       todo_item:
         description: "Description"
+      user:
+        name: "Name"
+        username: "Username"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
   helpers:
     submit:
       todo_item:

@@ -10,6 +10,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 
 group :development, :test do
   gem 'capybara', '~> 2.13'
@@ -19,6 +20,8 @@ end
 
 group :test do
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'database_cleaner'
+  gem 'rack_session_access', '~> 0.2.0'
 end
 
 group :development do

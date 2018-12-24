@@ -2,7 +2,8 @@ require "rails_helper"
 
 feature 'Deleting a todo item' do
   background do
-    @todo_item = TodoItem.create(description: 'Todo item a ser deletado')
+    sign_in
+    @todo_item = @user.todo_items.create(description: 'Todo item a ser deletado')
   end
 
   scenario 'Deleting successfully and returning to index page with english locale' do

@@ -1,6 +1,6 @@
 class TodoItemsController < ApplicationController
   def index
-    @todo_items = TodoItem.all
+    @todo_items = current_user.todo_items
   end
 
   def show
@@ -12,12 +12,11 @@ class TodoItemsController < ApplicationController
   end
 
   def create
-    @todo_item = TodoItem.new(todo_params)
+    @todo_item = current_user.todo_items.new(todo_params)
 
     if @todo_item.save
       redirect_to(
-        todo_items_path(locale: params[:locale]),
-        notice: I18n.t('todo_items.create.notice')
+        todo_items_path, notice: t('.success')
       )
     else
       render :new
@@ -30,10 +29,7 @@ class TodoItemsController < ApplicationController
 
   def update
     if todo_item.update(todo_params)
-      redirect_to(
-        todo_item_path(todo_item, locale: params[:locale]),
-        notice: I18n.t('todo_items.update.notice')
-      )
+      redirect_to todo_item, notice: t('.success')
     else
       render :edit
     end
@@ -41,11 +37,7 @@ class TodoItemsController < ApplicationController
 
   def destroy
     todo_item.destroy
-
-    redirect_to(
-      todo_items_path(locale: params[:locale]),
-      notice: I18n.t('todo_items.destroy.notice')
-    )
+    redirect_to todo_items_path, notice: t('.success')
   end
 
   private

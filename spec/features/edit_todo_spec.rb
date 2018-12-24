@@ -2,7 +2,8 @@ require 'rails_helper'
 
 feature "Editing Todo" do
   background do
-    @todo = TodoItem.create(description: "Life Changer")
+    sign_in
+    @todo = @user.todo_items.create(description: "Life Changer")
   end
 
   scenario "updates Todo successfully, with English locale" do
