@@ -15,4 +15,10 @@ Rails.application.routes.draw do
     get '/sessions/destroy' => 'sessions#destroy', as: :destroy_session
 
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :todo_items, only: [:index, :show, :create, :update, :destroy]
+    end
+  end
 end

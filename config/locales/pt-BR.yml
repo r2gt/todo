@@ -38,6 +38,12 @@ pt-BR:
     destroy:
       success: "Tarefa excluída com sucesso"
   activerecord:
+    errors:
+      models:
+        todo_item:
+          attributes:
+            description:
+              blank: "Não pode ser branco"
     models:
       todo_item:
         one: "Tarefa"
