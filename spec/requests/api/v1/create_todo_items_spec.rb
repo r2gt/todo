@@ -3,17 +3,16 @@ require 'rails_helper'
 describe 'Todo Items API creating endpoint' do
   describe 'POST /todo_items' do
     context 'successfully request' do
-      it "returns todo_items created" do
-        User.create(
-          name: 'Teste', username: 'teste', email: 'foo@bar.com', password: 'teste'
-        )
+      it 'returns todo_items created' do
+        user
 
         expect {
           post api_v1_todo_items_path,
-          params: {todo_item: { description: 'Foo bar' }},
-          xhr: true
+               params: {todo_item: { description: 'Foo bar' }}.to_json,
+               headers: basic_headers,
+               xhr: true
         }.to change(TodoItem, :count).by(1)
-
+        
         expect(response).to have_http_status(:created)
         expect(JSON.parse(response.body).size).not_to eq 0
         expect(JSON.parse(response.body)['description']).to eq 'Foo bar'
@@ -22,13 +21,12 @@ describe 'Todo Items API creating endpoint' do
 
     context 'failed request' do
       it "failed todo_items created" do
-        User.create(
-          name: 'Teste', username: 'teste', email: 'foo@bar.com', password: 'teste'
-        )
+        user
 
         expect {
           post api_v1_todo_items_path,
-               params: {todo_item: { description: '' }},
+               params: {todo_item: { description: '' } }.to_json,
+               headers: basic_headers, 
                xhr: true
         }.not_to change(TodoItem, :count)
 

@@ -45,5 +45,18 @@ describe User do
         expect(described_class.find_by_username_or_email('foo')).to eql nil
       end
     end
+
+    context "callbacks" do
+      it "generates api token on creation" do
+        expect(subject).to receive(:generate_api_token).once
+        subject.run_callbacks(:create)
+      end
+    end
+  end
+
+  it "#generate_api_token" do
+    allow(SecureRandom).to receive(:hex).and_return 'Foo'
+    expect(subject).to receive(:update).once.with(api_token: 'Foo')
+    subject.generate_api_token
   end
 end

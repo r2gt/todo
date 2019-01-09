@@ -13,7 +13,7 @@ describe 'Todo Items API deleting endpoint' do
     context 'successfully request' do
       it "deletes todo_item" do
         expect {
-          delete api_v1_todo_item_path(@todo_item.id)
+          delete api_v1_todo_item_path(@todo_item.id), headers: basic_headers
 
           expect(response).to have_http_status(:success)
         }.to change(TodoItem, :count).by(-1)
@@ -23,7 +23,7 @@ describe 'Todo Items API deleting endpoint' do
     context 'failed request' do
       it "doesn't deletes todo_item" do
         expect {
-          delete api_v1_todo_item_path(666)
+          delete api_v1_todo_item_path(666), headers: basic_headers
         }.to raise_exception(ActiveRecord::RecordNotFound)
       end
     end
