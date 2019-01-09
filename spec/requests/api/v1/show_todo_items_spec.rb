@@ -12,7 +12,7 @@ describe 'Todo Items API showing endpoint' do
 
     context 'successfully request' do
       it "returns todo_item" do
-        get api_v1_todo_item_path(@todo_item.id), xhr: true
+        get api_v1_todo_item_path(@todo_item.id), headers: basic_headers, xhr: true
 
         todo_item = JSON.parse(response.body)
 

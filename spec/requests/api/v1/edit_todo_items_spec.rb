@@ -13,7 +13,8 @@ describe 'Todo Items API editing endpoint' do
     context 'successfully request' do
       it "updates todo_item successfully" do
         patch api_v1_todo_item_path(@todo_item.id),
-              params: { todo_item: { description: "Comprar Leite"}}
+              params: { todo_item: { description: "Comprar Leite"}}.to_json,
+              headers: basic_headers
 
         expect(response).to have_http_status(:ok)
         expect(JSON.parse(response.body).dig("description")).to eql "Comprar Leite"
@@ -23,7 +24,8 @@ describe 'Todo Items API editing endpoint' do
     context 'failed request' do
       it "updates todo_item" do
         patch api_v1_todo_item_path(@todo_item.id),
-              params: { todo_item: { description: ""}}
+              params: { todo_item: { description: ""}}.to_json,
+              headers: basic_headers
 
         expect(response).to have_http_status(:unprocessable_entity)
         expect(JSON.parse(response.body)['description']).to include "Não pode ser branco"

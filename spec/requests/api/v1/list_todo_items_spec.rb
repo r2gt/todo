@@ -3,15 +3,15 @@ require 'rails_helper'
 describe 'Todo Items API listing endpoint' do
   describe 'GET /todo_items' do
     before do
-      user = User.create(
+      @user = User.create(
         name: 'Teste', username: 'teste', email: 'foo@bar.com', password: 'teste'
       )
 
-      @todo_item = user.todo_items.create(description: 'Todo item a ser deletado')
+      @todo_item = @user.todo_items.create(description: 'Todo item a ser deletado')
     end
 
     it "returns todo_items list" do
-      get api_v1_todo_items_path, xhr: true
+      get api_v1_todo_items_path, headers: basic_headers, xhr: true
 
       todo_items = JSON.parse(response.body)
 
@@ -21,4 +21,3 @@ describe 'Todo Items API listing endpoint' do
     end
   end
 end
-

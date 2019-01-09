@@ -15,6 +15,7 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
   config.include FeatureMacros, type: :feature
+  config.include RequestMacros, type: :request
 end
 
 Shoulda::Matchers.configure do |config|
