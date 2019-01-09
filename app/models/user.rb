@@ -13,6 +13,6 @@ class User < ApplicationRecord
   end
 
   def generate_api_token
-    update(api_token: SecureRandom.hex)
+    update(api_token: TokenService.create_for(self, :api_token))
   end
 end
