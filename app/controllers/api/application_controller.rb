@@ -9,4 +9,8 @@ class API::ApplicationController < ActionController::Base
       @current_user ||= User.find_by(api_token: token)
     end || head(:unauthorized)
   end
+
+  def current_user
+    @current_user
+  end
 end

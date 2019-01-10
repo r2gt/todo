@@ -43,7 +43,7 @@ class TodoItemsController < ApplicationController
   private
 
   def todo_item
-    @todo_item ||= TodoItem.find(params[:id])
+    @todo_item ||= current_user.todo_items.find(params[:id])
   end
 
   def todo_params

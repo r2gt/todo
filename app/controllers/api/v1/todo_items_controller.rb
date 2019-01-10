@@ -1,31 +1,29 @@
 module Api
   module V1
     class TodoItemsController < API::ApplicationController
+      before_action :todo_item, except: %i[index create]
+
       def index
-        @todo_items = TodoItem.all
+        @todo_items = current_user.todo_items
 
         render json: @todo_items
       end
 
       def show
-        todo_item = TodoItem.find(params[:id])
-
         render json: todo_item, status: :ok
       end
 
       def create
-        todo_item = TodoItem.new(todo_params.merge({user_id: User.last.id}))
+        @todo_item = current_user.todo_items.new(todo_params)
 
-        if todo_item.save
-          render json: todo_item, status: :created
+        if @todo_item.save
+          render json: @todo_item, status: :created
         else
-          render json: todo_item.errors, status: :unprocessable_entity
+          render json: @todo_item.errors, status: :unprocessable_entity
         end
       end
 
       def update
-        todo_item = TodoItem.find(params[:id])
-
         if todo_item.update(todo_params)
           render json: todo_item, status: :ok
         else
@@ -34,14 +32,16 @@ module Api
       end
 
       def destroy
-        todo_item = TodoItem.find(params[:id])
-
         if todo_item.destroy
           head :no_content
         end
       end
 
       private
+
+      def todo_item
+        @todo_item ||= current_user.todo_items.find(params[:id])
+      end
 
       def todo_params
         params.require(:todo_item).permit(:description)
