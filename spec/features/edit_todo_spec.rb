@@ -36,4 +36,16 @@ feature "Editing Todo" do
     expect(page).to have_content("Description")
     expect(page).to have_current_path(todo_item_path(@todo, locale: 'en'))
   end
+
+  scenario "tries to update another user todo_item" do
+    another_user = User.create(
+      name: 'another', username: 'another', email: 'ano@ther.com', password: 'teste'
+    )
+
+    another_todo = another_user.todo_items.create(description: 'Todo item show')
+
+    expect{
+      visit edit_todo_item_path(another_todo, locale: 'en')
+    }.to raise_error ActiveRecord::RecordNotFound
+  end
 end

@@ -7,7 +7,15 @@ describe 'Todo Items API listing endpoint' do
         name: 'Teste', username: 'teste', email: 'foo@bar.com', password: 'teste'
       )
 
+      @another_user = User.create(
+        name: 'Another', username: 'Another', email: 'another@another.com', password: 'teste'
+      )
+
       @todo_item = @user.todo_items.create(description: 'Todo item a ser deletado')
+
+      @another_todo_item = @another_user.todo_items.create(
+                             description: 'Todo item de another user'
+                           )
     end
 
     it "returns todo_items list" do

@@ -2,11 +2,11 @@ require 'rails_helper'
 
 describe 'Todo Items API deleting endpoint' do
   before do
-    user = User.create(
+    @user = User.create(
       name: 'Teste', username: 'teste', email: 'foo@bar.com', password: 'teste'
     )
 
-    @todo_item = user.todo_items.create(description: 'Todo item a ser deletado')
+    @todo_item = @user.todo_items.create(description: 'Todo item a ser deletado')
   end
 
   describe 'DELETE /todo_item/:id' do
