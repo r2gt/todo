@@ -6,6 +6,7 @@ describe User do
   it { is_expected.to validate_presence_of :email }
   it { is_expected.to validate_length_of(:password).is_at_least(5).is_at_most(20) }
   it { is_expected.to have_many(:todo_items) }
+  it { is_expected.to have_many(:boards) }
 
   describe '.find_by_username_or_email username_or_email' do
     context 'when user is found by username' do
