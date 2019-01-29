@@ -2,6 +2,7 @@ class TodoItem < ApplicationRecord
   include AASM
 
   belongs_to :user
+  belongs_to :board
   validates :description, presence: true
 
   aasm do

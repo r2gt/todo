@@ -1,4 +1,5 @@
 <h2><%= t('.subtitle') %></h2>
 <%= @todo_item.description %>
 <br>
-<%= link_to t('edit'), edit_todo_item_path(@todo_item) %>
+<%= link_to t('edit'), edit_board_todo_item_path(@board, @todo_item) %>
+<%= link_to t('back'), board_path(@board) %>

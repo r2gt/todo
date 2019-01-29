@@ -2,17 +2,18 @@ require 'rails_helper'
 
 describe 'Todo Items API editing endpoint' do
   before do
-    @user = User.create(
-      name: 'Teste', username: 'teste', email: 'foo@bar.com', password: 'teste'
-    )
+    @board = user.boards.create(name: 'Board 1')
 
-    @todo_item = @user.todo_items.create(description: 'Todo item a ser deletado')
+    @todo_item = @board.todo_items.create(
+      description: 'Todo item a ser deletado',
+      user_id: @user.id
+    )
   end
 
   describe 'PATCH /todo_items/:id' do
     context 'successfully request' do
       it "updates todo_item successfully" do
-        patch api_v1_todo_item_path(@todo_item.id),
+        patch api_v1_board_todo_item_path(@board, @todo_item),
               params: { todo_item: { description: "Comprar Leite"}}.to_json,
               headers: basic_headers
 
@@ -23,7 +24,7 @@ describe 'Todo Items API editing endpoint' do
 
     context 'failed request' do
       it "updates todo_item" do
-        patch api_v1_todo_item_path(@todo_item.id),
+        patch api_v1_board_todo_item_path(@board, @todo_item),
               params: { todo_item: { description: ""}}.to_json,
               headers: basic_headers
 
@@ -36,10 +37,14 @@ describe 'Todo Items API editing endpoint' do
           name: 'another', username: 'another', email: 'ano@ther.com', password: 'teste'
         )
 
-        another_todo = another_user.todo_items.create(description: 'Todo item show')
+        another_board = another_user.boards.create(name: 'Board 2')
+
+        another_todo = another_board.todo_items.create(
+          description: 'Todo item show', user_id: another_user.id
+        )
 
         expect{
-          patch api_v1_todo_item_path(another_todo.id),
+          patch api_v1_board_todo_item_path(another_board, another_todo),
               params: { todo_item: { description: "Comprar Leite"}}.to_json,
               headers: basic_headers
         }.to raise_error ActiveRecord::RecordNotFound

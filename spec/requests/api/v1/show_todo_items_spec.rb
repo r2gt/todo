@@ -3,16 +3,16 @@ require 'rails_helper'
 describe 'Todo Items API showing endpoint' do
   describe 'GET /todo_items/:id' do
     before do
-      @user = User.create(
-        name: 'Teste', username: 'teste', email: 'foo@bar.com', password: 'teste'
-      )
+      @board = user.boards.create(name: 'Board 1')
 
-      @todo_item = @user.todo_items.create(description: 'Todo item show')
+      @todo_item = @board.todo_items.create(
+        description: 'Todo item show', user_id: @user.id
+      )
     end
 
     context 'successfully request' do
       it "returns todo_item" do
-        get api_v1_todo_item_path(@todo_item.id), headers: basic_headers, xhr: true
+        get api_v1_board_todo_item_path(@board, @todo_item), headers: basic_headers, xhr: true
 
         todo_item = JSON.parse(response.body)
 
@@ -25,10 +25,14 @@ describe 'Todo Items API showing endpoint' do
           name: 'another', username: 'another', email: 'ano@ther.com', password: 'teste'
         )
 
-        another_todo = another_user.todo_items.create(description: 'Todo item show')
+        another_board = another_user.boards.create(name: 'Another Board')
+
+        another_todo = another_board.todo_items.create(
+          description: 'Todo item show', user_id: another_user.id
+        )
 
         expect{
-          get api_v1_todo_item_path(another_todo.id),
+          get api_v1_board_todo_item_path(another_board, another_todo),
               headers: basic_headers,
               xhr: true
         }.to raise_error ActiveRecord::RecordNotFound

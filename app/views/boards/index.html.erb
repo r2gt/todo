@@ -1,0 +1,13 @@
+<h1><%= t('.subtitle') %></h1>
+<%= link_to t('.new'), new_board_path %>
+
+<div>
+  <% @boards.each do |board| %>
+    <ul>
+      <li><%= board.name %></li>
+      <li><%= link_to t('show'), board_path(board), id: dom_id(board, :show) %></li>
+      <li><%= link_to t('edit'), edit_board_path(board), id: dom_id(board, :edit) %></li>
+      <li><%= link_to t('delete'), board, method: :delete, id: dom_id(board, :delete) %></li>
+    </ul>
+  <% end %>
+</div>

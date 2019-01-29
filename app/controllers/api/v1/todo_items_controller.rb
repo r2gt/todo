@@ -14,7 +14,7 @@ module Api
       end
 
       def create
-        @todo_item = current_user.todo_items.new(todo_params)
+        @todo_item = board.todo_items.new(todo_params)
 
         if @todo_item.save
           render json: @todo_item, status: :created
@@ -32,19 +32,21 @@ module Api
       end
 
       def destroy
-        if todo_item.destroy
-          head :no_content
-        end
+        head :no_content if todo_item.destroy
       end
 
       private
 
       def todo_item
-        @todo_item ||= current_user.todo_items.find(params[:id])
+        @todo_item ||= board.todo_items.find(params[:id])
       end
 
       def todo_params
-        params.require(:todo_item).permit(:description)
+        params.require(:todo_item).permit(:description).merge(user_id: current_user.id)
+      end
+
+      def board
+        @board ||= current_user.boards.find(params[:board_id])
       end
     end
   end
