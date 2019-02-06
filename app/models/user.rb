@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :todo_items
-  has_many :boards
+  has_many :owner_boards, class_name: 'Board'
+  has_and_belongs_to_many :boards
 
   validates :name, :username, :email, presence: true
   validates :password, length: 5..20
