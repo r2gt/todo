@@ -18,7 +18,7 @@ module FeatureMacros
   end
 
   def create_board
-    @board = @user.boards.create(name: 'Board 1')
+    @board = @user.owner_boards.create(name: 'Board 1')
   end
 
   def create_todo

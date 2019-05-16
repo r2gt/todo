@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Todo Items API deleting endpoint' do
   before do
-    @board = user.boards.create(name: 'Board 1')
+    @board = user.owner_boards.create(name: 'Board 1')
 
     @todo_item = @board.todo_items.create(
       description: 'Todo item a ser deletado', user_id: @user.id

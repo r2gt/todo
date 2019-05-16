@@ -10,7 +10,7 @@ module TodoItems
     end
 
     let(:board) do
-      user.boards.create(name: 'Board 1')
+      user.owner_boards.create(name: 'Board 1')
     end
 
     let(:todo_item) do

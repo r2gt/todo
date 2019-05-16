@@ -42,7 +42,7 @@ feature "Editing Todo" do
       name: 'another', username: 'another', email: 'ano@ther.com', password: 'teste'
     )
 
-    board2 = user2.boards.create(name: 'Board 2')
+    board2 = user2.owner_boards.create(name: 'Board 2')
 
     todo_item2 = TodoItem.create(
       description: 'Comprar Leite', user_id: user2.id, board_id: board2.id

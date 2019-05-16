@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
   def index
-    @boards = current_user.boards
+    @boards = current_user.owner_boards
   end
 
   def show; board; end
@@ -10,7 +10,7 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = current_user.boards.new(board_params)
+    @board = current_user.owner_boards.new(board_params)
 
     if @board.save
       redirect_to(
@@ -39,7 +39,7 @@ class BoardsController < ApplicationController
   private
 
   def board
-    @board ||= current_user.boards.find(params[:id])
+    @board ||= current_user.owner_boards.find(params[:id])
   end
 
   def board_params

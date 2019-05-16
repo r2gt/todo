@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Todo Items API showing endpoint' do
   describe 'GET /todo_items/:id' do
     before do
-      @board = user.boards.create(name: 'Board 1')
+      @board = user.owner_boards.create(name: 'Board 1')
 
       @todo_item = @board.todo_items.create(
         description: 'Todo item show', user_id: @user.id
@@ -25,7 +25,7 @@ describe 'Todo Items API showing endpoint' do
           name: 'another', username: 'another', email: 'ano@ther.com', password: 'teste'
         )
 
-        another_board = another_user.boards.create(name: 'Another Board')
+        another_board = another_user.owner_boards.create(name: 'Another Board')
 
         another_todo = another_board.todo_items.create(
           description: 'Todo item show', user_id: another_user.id

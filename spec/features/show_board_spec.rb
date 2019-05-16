@@ -22,7 +22,7 @@ feature 'Showing board' do
       name: 'another', username: 'another', email: 'ano@ther.com', password: 'teste'
     )
 
-    another_board = another_user.boards.create(name: 'Board show')
+    another_board = another_user.owner_boards.create(name: 'Board show')
 
     expect{
       visit board_path(another_board, locale: :en)

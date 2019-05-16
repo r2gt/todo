@@ -32,7 +32,7 @@ feature 'Showing todo' do
       name: 'another', username: 'another', email: 'ano@ther.com', password: 'teste'
     )
 
-    another_board = another_user.boards.create(name: 'Board show')
+    another_board = another_user.owner_boards.create(name: 'Board show')
 
     another_todo = another_board.todo_items.create(
       description: 'Todo item show', user: another_user

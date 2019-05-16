@@ -48,6 +48,6 @@ class TodoItemsController < ApplicationController
   end
 
   def board
-    @board ||= current_user.boards.find(params[:board_id])
+    @board ||= current_user.owner_boards.find(params[:board_id])
   end
 end

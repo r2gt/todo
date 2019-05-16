@@ -7,7 +7,7 @@ describe 'Todo Items API listing endpoint' do
         name: 'Teste', username: 'teste', email: 'foo@bar.com', password: 'teste'
       )
 
-      @board = @user.boards.create(name: 'Board 1')
+      @board = @user.owner_boards.create(name: 'Board 1')
 
       @todo_item = @board.todo_items.create(
         description: 'Todo item a ser deletado', user_id: @user.id

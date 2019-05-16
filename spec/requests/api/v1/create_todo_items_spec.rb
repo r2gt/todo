@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Todo Items API creating endpoint' do
   describe 'POST /todo_items' do
-    before { @board = user.boards.create(name: 'Board 1') }
+    before { @board = user.owner_boards.create(name: 'Board 1') }
 
     context 'successfully request' do
       it 'returns todo_items created' do

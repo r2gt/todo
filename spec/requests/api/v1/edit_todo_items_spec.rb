@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Todo Items API editing endpoint' do
   before do
-    @board = user.boards.create(name: 'Board 1')
+    @board = user.owner_boards.create(name: 'Board 1')
 
     @todo_item = @board.todo_items.create(
       description: 'Todo item a ser deletado',
@@ -37,7 +37,7 @@ describe 'Todo Items API editing endpoint' do
           name: 'another', username: 'another', email: 'ano@ther.com', password: 'teste'
         )
 
-        another_board = another_user.boards.create(name: 'Board 2')
+        another_board = another_user.owner_boards.create(name: 'Board 2')
 
         another_todo = another_board.todo_items.create(
           description: 'Todo item show', user_id: another_user.id
