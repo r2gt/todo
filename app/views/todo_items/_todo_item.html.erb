@@ -1,0 +1,12 @@
+<li style="display: flex;">
+  <%= form_tag board_todo_item_status_path(@board, todo_item.id), method: :patch, remote: true do %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= check_box_tag dom_id(todo_item), nil, checked=todo_item.done? %>
+    <%= content_tag(:span, todo_item.description, id: "text_#{todo_item.id}") %>
+  <% end %>
+
+  &nbsp &nbsp
+  <%= link_to t('delete'), board_todo_item_path(@board, todo_item), method: :delete, id: dom_id(todo_item, :delete) %> &nbsp | &nbsp
+  <%= link_to t('edit'), edit_board_todo_item_path(@board, todo_item) %> &nbsp | &nbsp
+  <%= link_to t('show'), board_todo_item_path(@board, todo_item) %>
+</li>

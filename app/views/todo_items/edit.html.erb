@@ -1,1 +1,3 @@
-<%= render 'form', url: todo_item_path %>
+<%= render 'form', url: board_todo_item_path %>
+
+<%= link_to t('back'), board_todo_item_path(@board, @todo_item) %>

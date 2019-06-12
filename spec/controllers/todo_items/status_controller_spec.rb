@@ -9,15 +9,19 @@ module TodoItems
       )
     end
 
+    let(:board) do
+      user.owner_boards.create(name: 'Board 1')
+    end
+
     let(:todo_item) do
-      TodoItem.create(description: 'Comprar Leite', user_id: user.id)
+      board.todo_items.create(description: 'Comprar Leite', user_id: user.id)
     end
 
     it 'changes todo status for done' do
       allow(subject).to receive(:logged_in?).and_return(true)
       allow(subject).to receive(:current_user).and_return(user)
 
-      patch :update, params: { todo_item_id: todo_item.id }
+      patch :update, params: { board_id: board.id, todo_item_id: todo_item.id }
 
       todo_item.reload
 
@@ -32,7 +36,7 @@ module TodoItems
 
       expect(todo_item.done?).to eq true
 
-      patch :update, params: { todo_item_id: todo_item.id }
+      patch :update, params: { board_id: board.id, todo_item_id: todo_item.id }
 
       todo_item.reload
 
