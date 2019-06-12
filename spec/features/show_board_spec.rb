@@ -11,6 +11,7 @@ feature 'Showing board' do
 
     expect(page).to have_text @board.name
     expect(page).to have_text @board.todo_items.first.description
+    expect(page).to have_text('Comentario')
 
     expect(page).to have_link(
       'Edit', href: edit_board_todo_item_path(@board, @todo_item, locale: :en)

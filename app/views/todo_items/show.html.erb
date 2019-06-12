@@ -1,5 +1,14 @@
 <h2><%= t('.subtitle') %></h2>
 <%= @todo_item.description %>
+
+<br>
+<hr>
+
+<h2>TodoItem Comments</h2>
+
+<ul class="todo_items">
+  <%= render @todo_item.comments %>
+</ul>
 <br>
 <%= link_to t('edit'), edit_board_todo_item_path(@board, @todo_item) %>
 <%= link_to t('back'), board_path(@board) %>

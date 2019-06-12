@@ -19,9 +19,11 @@ module FeatureMacros
 
   def create_board
     @board = @user.owner_boards.create(name: 'Board 1')
+    @board.comments.create(content: 'Comentario', user: @user)
   end
 
   def create_todo
     @todo_item = @board.todo_items.create(description: 'Todo item 1', user: @user)
+    @todo_item.comments.create(content: 'Comentario', user: @user)
   end
 end
