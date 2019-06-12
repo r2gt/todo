@@ -3,6 +3,8 @@ class TodoItem < ApplicationRecord
 
   belongs_to :user
   belongs_to :board
+  has_many :comments, as: :commentable
+
   validates :description, presence: true
 
   aasm do
