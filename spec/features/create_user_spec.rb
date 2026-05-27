@@ -5,7 +5,7 @@ feature 'Creating an user' do
     sign_in
   end
 
-  scenario 'Create user, using English locale' do
+  scenario('Create user, using English localjjke') do
     visit users_path(locale: 'en')
 
     expect {

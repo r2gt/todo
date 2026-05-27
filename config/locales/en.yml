@@ -24,6 +24,23 @@ en:
       success: "User was successfully updated"
     destroy:
       success: "User was successfully deleted"
+  boards:
+    index:
+      subtitle: "Boards"
+      new: 'New Board'
+      show: 'Show'
+      delete: 'Delete'
+      edit: 'Edit'
+    create:
+      success: "Board was successfully created"
+    show:
+      subtitle: 'Board '
+    new:
+      subtitle: "New board"
+    update:
+      success: "Board was successfully updated"
+    destroy:
+      success: "Board was successfully deleted"
   todo_items:
     show:
       subtitle: "Details to-do"

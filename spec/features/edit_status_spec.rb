@@ -1,29 +1,33 @@
 require 'rails_helper'
 
 feature 'Edit todo status' do
-  background { sign_in }
+  background { sign_in_with_board }
 
-  scenario 'transition from todo for done', js: true do
-    todo_item = TodoItem.create(description: 'Comprar Leite', user_id: @user.id)
+  scenario 'transition from todo to done', js: true do
+    create_todo
+    visit board_path(@board, locale: 'en')
 
-    visit todo_items_path(locale: 'en')
+    find("#todo_item_#{@todo_item.id}").click
 
-    find("#todo_item_#{todo_item.id}").click
+    @todo_item.reload
 
-    todo_item.reload
-
-    expect(todo_item).to be_done
+    expect(@todo_item).to be_done
   end
 
   scenario 'transition from done to todo', js: true do
-    todo_item = TodoItem.create(description: 'Comprar Leite', user_id: @user.id, aasm_state: 'done')
+    @todo_item = TodoItem.create(
+      description: 'Comprar Leite',
+      user_id: @user.id,
+      board_id: @board.id,
+      aasm_state: 'done'
+    )
 
-    visit todo_items_path(locale: 'en')
+    visit board_path(@board, locale: 'en')
 
-    find("#todo_item_#{todo_item.id}").click
+    find("#todo_item_#{@todo_item.id}").click
 
-    todo_item.reload
+    @todo_item.reload
 
-    expect(todo_item).to be_todo
+    expect(@todo_item).to be_todo
   end
 end

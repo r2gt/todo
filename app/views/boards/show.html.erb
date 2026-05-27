@@ -1,0 +1,15 @@
+<h2><%= "Board #{@board.name}" %></h2>
+
+<%= link_to 'New todo item', new_board_todo_item_path(@board.id) %>
+
+<ul class="todo_items">
+  <%= render @board.todo_items %>
+</ul>
+
+<hr>
+
+<h2>Boards Comments</h2>
+
+<ul class="todo_items">
+  <%= render @board.comments %>
+</ul>
